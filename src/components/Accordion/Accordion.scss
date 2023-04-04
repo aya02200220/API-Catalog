@@ -1,0 +1,39 @@
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.radio-inline__input {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+}
+
+.radio-inline__label {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 3px 5px;
+  border-radius: 3px;
+  background-color: #fff4f4;
+  transition: all 0.2s;
+  &:hover {
+    background-color: #f5a2a2;
+  }
+}
+
+.radio-inline__input:checked + .radio-inline__label {
+  background: #b54a4a;
+  color: #fff;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+}
+
+.radio-inline__input:focus + .radio-inline__label {
+  outline-color: #b54a4a;
+  outline-offset: 2px;
+  outline-style: auto;
+  outline-width: 5px;
+}
