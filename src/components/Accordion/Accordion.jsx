@@ -10,11 +10,14 @@ const Input = styled.input`
 
 // https://api.publicapis.org/entries
 
-function AccordionMenu() {
+function AccordionMenu(props) {
   const [categories, setCategories] = useState([]);
   const [selected, setSelected] = useState("All");
   const handleChange = (e) => {
     setSelected(e.target.value);
+    {
+      props.setCategory(e.target.value);
+    }
   };
 
   useEffect(() => {
@@ -30,7 +33,8 @@ function AccordionMenu() {
       }
     };
     fetchCategory();
-    console.log(categories);
+    props.setCategory(selected);
+    // console.log(categories);
   }, []);
 
   const mapCategory = categories.map((category, key) => (

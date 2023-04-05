@@ -1,16 +1,16 @@
 import { useState } from "react";
 import "./App.css";
-
 import HomeNavbar from "./components/Navbar/Navbar";
 import AccordionMenu from "./components/Accordion/Accordion";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [category, setCategory] = useState("");
 
   return (
     <>
       <HomeNavbar />
-      <AccordionMenu />
+      <AccordionMenu setCategory={setCategory} />
+      現在のカテゴリーは：{category}
     </>
   );
 }
