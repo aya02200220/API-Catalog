@@ -12,9 +12,10 @@ const Input = styled.input`
 
 function AccordionMenu() {
   const [categories, setCategories] = useState([]);
-  /** 選択中のラジオボタンvalue */
-  const [selected, setSelected] = useState("chocolate");
-  /** ラジオボタン切り替えイベント */
+  const [selected, setSelected] = useState("All");
+  const handleChange = (e) => {
+    setSelected(e.target.value);
+  };
 
   useEffect(() => {
     const fetchCategory = async () => {
@@ -41,8 +42,8 @@ function AccordionMenu() {
         name="selectCategory"
         id={category}
         value={category}
-        checked={{ category } === selected}
-        onChange={changeValue}
+        checked={category === selected}
+        onChange={handleChange}
       />
       <label className="radio-inline__label" for={category}>
         {category}
@@ -53,7 +54,9 @@ function AccordionMenu() {
   return (
     <Accordion defaultActiveKey={["0"]} alwaysOpen>
       <Accordion.Item eventKey="0">
-        <Accordion.Header>Select Category</Accordion.Header>
+        <Accordion.Header>
+          Select Category : [Current category: {selected}]
+        </Accordion.Header>
         <Accordion.Body>
           <fieldset className="radiobutton">
             <input
@@ -63,7 +66,8 @@ function AccordionMenu() {
               name="selectCategory"
               value="All"
               id="All"
-              // checked="checked"
+              checked={"All" === selected}
+              onChange={handleChange}
             />
             <label className="radio-inline__label" for="All">
               ALL
