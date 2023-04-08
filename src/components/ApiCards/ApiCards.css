@@ -4,10 +4,13 @@
   justify-content: center;
   margin: 20px 0px;
 }
-.cardList--fieldset .card--container {
+.cardList--fieldset .listCard--body {
+  text-decoration: none;
+}
+.cardList--fieldset .listCard--body .card--container {
   margin: 10px 10px;
 }
-.cardList--fieldset .card--container {
+.cardList--fieldset .listCard--body .card--container {
   min-width: 15rem;
   max-width: 15rem;
 }
