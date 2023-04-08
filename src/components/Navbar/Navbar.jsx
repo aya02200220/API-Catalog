@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -8,7 +10,18 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import styled from "styled-components";
 import "./Navbar.css";
 
-function HomeNavbar() {
+function HomeNavbar(props) {
+  const ref = useRef();
+
+  const handleSearch = () => {
+    // console.log("入力確認：", ref.current.value.toLowerCase());
+    // let keyWord = ref.current.value.toLowerCase();
+    // setSelected(ref.current.value.toLowerCase());
+    {
+      props.setSearchKey(ref.current.value.toLowerCase());
+    }
+  };
+
   return (
     // <Navbar bg="light" expand="lg">
     <Navbar expand="lg" className="navbar">
@@ -43,8 +56,12 @@ function HomeNavbar() {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              ref={ref}
+              // onChange={() => handleSearch()}
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" onClick={handleSearch}>
+              Search
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>

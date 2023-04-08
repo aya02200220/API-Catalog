@@ -1,22 +1,26 @@
 import { useState, useEffect, useContext } from "react";
-import axios from "axios";
+// import axios from "axios";
+// import Pagination from "../Pagination/Pagination";
 
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import "./ApiCards.css";
+import { MyCategory } from "../../App";
 import { CardGroup } from "react-bootstrap";
 
 function ApiCards(props) {
+  const [category] = useContext(MyCategory);
   const [apiList, setApiList] = useState(props.apiList);
   const [filtered, setFiltered] = useState(props.apiList);
-  const [category, setCategory] = useState("");
+  const [searchKey, setSearchKey] = useState("");
+  // const [category, setCategory] = useState("");
 
   useEffect(() => {
     setApiList(props.apiList);
     setFiltered(props.apiList);
-    console.log("---------useEffect---------");
-    console.log(apiList);
-    console.log(filtered);
+    // console.log("---------useEffect---------");
+    // console.log(apiList);
+    // console.log(filtered);
   }, []);
 
   const apiCards = filtered.map((card, key) => (
@@ -50,21 +54,23 @@ function ApiCards(props) {
   ));
 
   useEffect(() => {
-    if (props.category === "All") {
+    if (category === "All") {
       setApiList(props.apiList);
       setFiltered(props.apiList);
       return;
     }
-    const filtered = apiList.filter((card) =>
-      card.Category.includes(props.category)
-    );
+    const filtered = apiList.filter((card) => card.Category.includes(category));
     setFiltered(filtered);
-  }, [props.category]);
+  }, [category]);
+
+  useEffect(() => {
+    setSearchKey(props.searchKey);
+  }, [props.searchKey]);
 
   return (
     <>
-      {/* <p>Current Category: {apiList[1].Category}</p> */}
-      <p>Current Category: {props.category}</p>
+      <p>さーちきー：{searchKey}</p>
+      <p>Current Category: {category}</p>
       <p>Number of API: {apiCards.length}</p>
       <div className="cardList--fieldset">{apiCards}</div>
     </>
