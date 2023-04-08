@@ -14,13 +14,21 @@ function HomeNavbar(props) {
   const ref = useRef();
 
   const handleSearch = () => {
-    // console.log("入力確認：", ref.current.value.toLowerCase());
+    console.log("入力確認：", ref.current.value.toLowerCase());
     // let keyWord = ref.current.value.toLowerCase();
     // setSelected(ref.current.value.toLowerCase());
     {
       props.setSearchKey(ref.current.value.toLowerCase());
     }
   };
+
+  function hitEnter(key) {
+    if (key == "Enter") {
+      {
+        props.setSearchKey(ref.current.value.toLowerCase());
+      }
+    }
+  }
 
   return (
     // <Navbar bg="light" expand="lg">
@@ -57,7 +65,7 @@ function HomeNavbar(props) {
               className="me-2"
               aria-label="Search"
               ref={ref}
-              // onChange={() => handleSearch()}
+              onKeyUp={(e) => hitEnter(e.key)}
             />
             <Button variant="outline-success" onClick={handleSearch}>
               Search
