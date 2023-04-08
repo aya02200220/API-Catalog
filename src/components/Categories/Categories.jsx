@@ -2,13 +2,11 @@ import Accordion from "react-bootstrap/Accordion";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import "./Accordion.css";
+import "./categories.css";
 
 const Input = styled.input`
   display: none;
 `;
-
-// https://api.publicapis.org/entries
 
 function AccordionMenu(props) {
   const [categories, setCategories] = useState([]);
@@ -34,7 +32,7 @@ function AccordionMenu(props) {
     };
     fetchCategory();
     props.setCategory(selected);
-    // console.log(categories);
+    console.log("カテゴリ確認", categories);
   }, []);
 
   const mapCategory = categories.map((category, key) => (

@@ -1,0 +1,14 @@
+.cardList--fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0px;
+  .card--container {
+    margin: 10px 10px;
+    // padding: 10px 10px;
+  }
+  .card--container {
+    min-width: 15rem;
+    max-width: 15rem;
+  }
+}

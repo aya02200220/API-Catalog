@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useState, useContext, createContext } from "react";
 import "./App.css";
 import HomeNavbar from "./components/Navbar/Navbar";
-import AccordionMenu from "./components/Accordion/Accordion";
+import Categories from "./components/Categories/Categories";
+import ApiCards from "./components/ApiCards/ApiCards";
 
+// const CategoryContext = createContext(category);
 function App() {
   const [category, setCategory] = useState("");
 
   return (
     <>
       <HomeNavbar />
-      <AccordionMenu setCategory={setCategory} />
-      現在のカテゴリーは：{category}
+      <Categories setCategory={setCategory} />
+      <ApiCards category={category} />
     </>
   );
 }

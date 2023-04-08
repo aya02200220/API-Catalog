@@ -1,0 +1,14 @@
+.cardList--fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0px;
+}
+.cardList--fieldset .card--container {
+  margin: 10px 10px;
+}
+.cardList--fieldset .card--container {
+  min-width: 15rem;
+  max-width: 15rem;
+}
+/*# sourceMappingURL=ApiCards.css.map */
