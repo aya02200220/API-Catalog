@@ -12,6 +12,7 @@ function ApiCards(props) {
   const [category] = useContext(MyCategory);
   const [apiList, setApiList] = useState(props.apiList);
   const [filtered, setFiltered] = useState(props.apiList);
+  const [searched, setSearched] = useState(props.apiList);
   const [searchKey, setSearchKey] = useState("");
   // const [category, setCategory] = useState("");
 
@@ -25,12 +26,10 @@ function ApiCards(props) {
 
   const apiCards = filtered.map((card, key) => (
     <>
-      <a className="listCard--body" target="_blank" href={card.Link}>
+      <a className="listCard--body" target="_blank" href={card.Link} key={key}>
         <Card className="card--container">
           <ListGroup className="list-group-flush">
-            <ListGroup.Item key={key}>
-              {card.Category.toUpperCase()}
-            </ListGroup.Item>
+            <ListGroup.Item>{card.Category.toUpperCase()}</ListGroup.Item>
           </ListGroup>{" "}
           <Card.Body>
             <Card.Title>{card.API}</Card.Title>
@@ -67,9 +66,31 @@ function ApiCards(props) {
     setSearchKey(props.searchKey);
   }, [props.searchKey]);
 
+  useEffect(() => {
+    console.log(searchKey);
+    if (searchKey === "") {
+      if (category === "All") {
+        setApiList(props.apiList);
+        setFiltered(props.apiList);
+        return;
+      }
+      const filtered = apiList.filter((card) =>
+        card.Category.includes(category)
+      );
+      setFiltered(filtered);
+      return;
+    }
+    const searched = filtered.filter((card) => {
+      return (
+        card.API.toLowerCase().includes(searchKey) ||
+        card.Description.toLowerCase().includes(searchKey) ||
+        card.Category.toLowerCase().includes(searchKey)
+      );
+    });
+    setFiltered(searched);
+  }, [searchKey]);
   return (
     <>
-      <p>さーちきー：{searchKey}</p>
       <p>Current Category: {category}</p>
       <p>Number of API: {apiCards.length}</p>
       <div className="cardList--fieldset">{apiCards}</div>
