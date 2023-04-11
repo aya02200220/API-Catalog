@@ -33,6 +33,9 @@
   color: rgb(198, 255, 255);
   font-weight: 400;
 }
+.navbar .form-control {
+  width: 20%;
+}
 .navbar .search-btn {
   background-color: rgb(218, 208, 255);
 }

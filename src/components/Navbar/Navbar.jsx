@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState, useContext } from "react";
-import { Link } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -24,7 +23,9 @@ function HomeNavbar(props) {
   };
 
   function hitEnter(key) {
+    console.log("Enter確認1");
     if (key == "Enter") {
+      console.log("Enter確認2");
       {
         props.setSearchKey("");
       }
@@ -37,7 +38,6 @@ function HomeNavbar(props) {
   useEffect(() => {
     setText("");
   }, [props.searchKey]);
-
   useEffect(() => {
     setText("");
     {
@@ -49,7 +49,7 @@ function HomeNavbar(props) {
     // <Navbar bg="light" expand="lg">
     <Navbar fixed="top" expand="lg" className="navbar">
       <Container fluid>
-        <Navbar.Brand href="#">Public API Catalog</Navbar.Brand>
+        <Navbar.Brand href="#">API Catalog</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -57,17 +57,14 @@ function HomeNavbar(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            {/* <Nav.Link href="#action1">Home</Nav.Link> */}
-            {/* <Nav.Link href="#action2">Favorite</Nav.Link> */}
-
-            {/* <Link className="nav-link" to="/">
+            {/* <Nav.Link className="nav-link" href="#action1">
               Home
-            </Link>
-
-            <Link className="nav-link" to="/favorite">
+            </Nav.Link>
+            <Nav.Link className="nav-link" href="#action2">
               Favorite
-            </Link> */}
-
+            </Nav.Link> */}
+            {/* <Nav.Link href="action1">Home</Nav.Link>
+            <Nav.Link href="action2">Favorite</Nav.Link> */}
             {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
@@ -82,25 +79,25 @@ function HomeNavbar(props) {
               Link
             </Nav.Link> */}
           </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-              ref={ref}
-              onKeyUp={(e) => hitEnter(e.key)}
-              value={text}
-              onChange={(event) => setText(event.target.value)}
-            />
-            <Button
-              className="search-btn"
-              variant="outline"
-              onClick={handleSearch}
-            >
-              Search
-            </Button>
-          </Form>
+          {/* <Form className="d-flex"> */}
+          <Form.Control
+            type="search"
+            placeholder="Search"
+            className="me-2"
+            aria-label="Search"
+            ref={ref}
+            onKeyUp={(e) => hitEnter(e.key)}
+            value={text}
+            onChange={(event) => setText(event.target.value)}
+          />
+          <Button
+            className="search-btn"
+            variant="outline"
+            onClick={handleSearch}
+          >
+            Search
+          </Button>
+          {/* </Form> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>
