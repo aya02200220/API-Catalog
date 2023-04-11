@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useContext } from "react";
+import { Link } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -56,8 +57,16 @@ function HomeNavbar(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Favorite</Nav.Link>
+            {/* <Nav.Link> */}
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
+            {/* </Nav.Link> */}
+            {/* <Nav.Link> */}
+            <Link className="nav-link" to="/favorite">
+              Favorite
+            </Link>
+            {/* </Nav.Link> */}
             {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
