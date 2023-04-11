@@ -57,16 +57,16 @@ function HomeNavbar(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            {/* <Nav.Link> */}
-            <Link className="nav-link" to="/">
+            <Nav.Link href="#action1">Home</Nav.Link>
+            <Nav.Link href="#action2">Favorite</Nav.Link>
+            {/* <Link className="nav-link" to="/">
               Home
             </Link>
-            {/* </Nav.Link> */}
-            {/* <Nav.Link> */}
+
             <Link className="nav-link" to="/favorite">
               Favorite
-            </Link>
-            {/* </Nav.Link> */}
+            </Link> */}
+
             {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
