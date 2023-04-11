@@ -49,14 +49,14 @@ function ApiCards(props) {
             <ListGroup.Item className="card--title">
               {card.Category.toUpperCase()}
             </ListGroup.Item>
-            <Bookmark>
+            {/* <Bookmark>
               <FontAwesomeIcon
                 icon={faBookmark}
                 className="icon--bookmark"
                 active={false}
                 onClick={activeToggle}
               />
-            </Bookmark>
+            </Bookmark> */}
           </ListGroup>{" "}
           <a className="card-link" target="_blank" href={card.Link} key={key}>
             <Card.Body className="card-body">

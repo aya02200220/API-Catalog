@@ -57,8 +57,9 @@ function HomeNavbar(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Favorite</Nav.Link>
+            {/* <Nav.Link href="#action1">Home</Nav.Link> */}
+            {/* <Nav.Link href="#action2">Favorite</Nav.Link> */}
+
             {/* <Link className="nav-link" to="/">
               Home
             </Link>
