@@ -4,6 +4,7 @@ import axios from "axios";
 import HomeNavbar from "./components/Navbar/Navbar";
 import Categories from "./components/Categories/Categories";
 import ApiCards from "./components/ApiCards/ApiCards";
+import Background from "./components/Background/Background";
 
 import JsonData from "./components/JsonData.json";
 
@@ -34,11 +35,14 @@ function App() {
   }, []);
 
   return (
-    <MyCategory.Provider value={[category, setCategory]}>
-      <HomeNavbar setSearchKey={setSearchKey} />
-      <Categories setCategory={setCategory} />
-      <ApiCards apiList={apiList} filtered={filtered} searchKey={searchKey} />
-    </MyCategory.Provider>
+    <>
+      <MyCategory.Provider value={[category, setCategory]}>
+        <HomeNavbar setSearchKey={setSearchKey} />
+        <Categories setCategory={setCategory} />
+
+        <ApiCards apiList={apiList} filtered={filtered} searchKey={searchKey} />
+      </MyCategory.Provider>
+    </>
   );
 }
 

@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import Background from "../Background/Background";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import "./ApiCards.css";
@@ -122,6 +122,7 @@ function ApiCards(props) {
   }, [searchKey]);
   return (
     <div className="card--container">
+      <Background />
       <div className="card-list--info">
         <p className="--list --1">
           Current Category:
@@ -136,6 +137,7 @@ function ApiCards(props) {
           </Badge>
         </p>
       </div>
+
       <motion.div
         layout
         transition={{ duration: 0.3 }}

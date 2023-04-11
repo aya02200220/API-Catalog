@@ -51,6 +51,7 @@
   color: #000;
 }
 .main-accordion--header .accordion-collapse {
+  z-index: 0;
   background-color: #f8f8f8;
 }
 /*# sourceMappingURL=Categories.css.map */
