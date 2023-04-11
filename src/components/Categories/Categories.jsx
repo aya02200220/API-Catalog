@@ -55,11 +55,13 @@ function AccordionMenu(props) {
   ));
 
   return (
-    <Accordion defaultActiveKey={["0"]} alwaysOpen>
+    <Accordion
+      defaultActiveKey={["0"]}
+      alwaysOpen
+      className="main-accordion--header"
+    >
       <Accordion.Item eventKey="0">
-        <Accordion.Header>
-          Select Category : [Current category: {selected}]
-        </Accordion.Header>
+        <Accordion.Header>Select Category</Accordion.Header>
         <Accordion.Body>
           <fieldset className="radiobutton">
             <input

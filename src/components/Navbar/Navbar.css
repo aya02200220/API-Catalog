@@ -1,4 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 .navbar {
-  background-color: rgb(196, 83, 145);
+  font-family: "Quicksand", sans-serif;
+  color: #fff;
+  position: fixed;
+  background-color: rgb(38, 46, 107);
+}
+.navbar .me-auto.my-2.my-lg-0.navbar-nav.navbar-nav-scroll {
+  margin: 0 40px;
+}
+.navbar .navbar-toggler-icon {
+  border-radius: 3px;
+  background-color: rgb(149, 154, 188);
+}
+.navbar a.navbar-brand {
+  font-weight: 600;
+  color: white;
+  margin-left: 60px;
+}
+.navbar a.nav-link {
+  color: #fff;
+  font-weight: 300;
+  margin-left: 10px;
+}
+.navbar a.nav-link.active {
+  color: rgb(160, 160, 248);
+  font-weight: 500;
+}
+.navbar a.nav-link:hover {
+  color: rgb(198, 255, 255);
+  font-weight: 400;
+}
+.navbar .search-btn {
+  background-color: rgb(218, 208, 255);
+}
+.navbar .search-btn:hover {
+  background-color: rgb(180, 160, 251);
 }
 /*# sourceMappingURL=Navbar.css.map */

@@ -32,7 +32,7 @@ function HomeNavbar(props) {
 
   return (
     // <Navbar bg="light" expand="lg">
-    <Navbar expand="lg" className="navbar">
+    <Navbar fixed="top" expand="lg" className="navbar">
       <Container fluid>
         <Navbar.Brand href="#">API Catalog</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -67,7 +67,11 @@ function HomeNavbar(props) {
               ref={ref}
               onKeyUp={(e) => hitEnter(e.key)}
             />
-            <Button variant="outline-success" onClick={handleSearch}>
+            <Button
+              className="search-btn"
+              variant="outline"
+              onClick={handleSearch}
+            >
               Search
             </Button>
           </Form>

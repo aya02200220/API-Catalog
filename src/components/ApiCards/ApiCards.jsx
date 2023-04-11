@@ -1,6 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-// import axios from "axios";
-// import Pagination from "../Pagination/Pagination";
+// import { faBookmark } from "@fortawesome/free-regular-svg-icons";
+import { motion } from "framer-motion";
+import { faBookmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -8,12 +10,21 @@ import "./ApiCards.css";
 import { MyCategory } from "../../App";
 import { CardGroup } from "react-bootstrap";
 
+import Badge from "react-bootstrap/Badge";
+
+import styled from "styled-components";
+
+const Bookmark = styled.div`
+  background-color: ${(props) => (props.active ? "orange" : "black")};
+`;
+
 function ApiCards(props) {
   const [category] = useContext(MyCategory);
   const [apiList, setApiList] = useState(props.apiList);
   const [filtered, setFiltered] = useState(props.apiList);
   const [searched, setSearched] = useState(props.apiList);
   const [searchKey, setSearchKey] = useState("");
+  const [saved, setSaved] = useState(false);
   // const [category, setCategory] = useState("");
 
   useEffect(() => {
@@ -24,31 +35,51 @@ function ApiCards(props) {
     // console.log(filtered);
   }, []);
 
+  const activeToggle = (e) => {
+    setSaved(!active);
+    // console.log(e.target.icon);
+    console.log("確認２");
+  };
+
   const apiCards = filtered.map((card, key) => (
     <>
-      <a className="listCard--body" target="_blank" href={card.Link} key={key}>
+      <motion.div
+        layout
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        className="listCard--body"
+      >
         <Card className="card--container">
           <ListGroup className="list-group-flush">
-            <ListGroup.Item>{card.Category.toUpperCase()}</ListGroup.Item>
-          </ListGroup>{" "}
-          <Card.Body>
-            <Card.Title>{card.API}</Card.Title>
-            <Card.Text>{card.Description}</Card.Text>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
-            <ListGroup.Item>
-              Auth type : {card.Auth ? card.Auth : "---"}
+            <ListGroup.Item className="card--title">
+              {card.Category.toUpperCase()}
             </ListGroup.Item>
-            {/* <ListGroup.Item>HTTPS : {Card.HTTPS}</ListGroup.Item> */}
-            <ListGroup.Item>Cors : {card.Cors.toUpperCase()}</ListGroup.Item>
-          </ListGroup>
-          {/* <Card.Body>
-            <Card.Link target="_blank" href={card.Link}>
-              API Link
-            </Card.Link>
-          </Card.Body> */}
+            <Bookmark>
+              <FontAwesomeIcon
+                icon={faBookmark}
+                className="icon--bookmark"
+                active={false}
+                onClick={activeToggle}
+              />
+            </Bookmark>
+          </ListGroup>{" "}
+          <a className="card-link" target="_blank" href={card.Link} key={key}>
+            <Card.Body className="card-body">
+              <Card.Title>{card.API}</Card.Title>
+              <Card.Text>{card.Description}</Card.Text>
+            </Card.Body>
+            <ListGroup className="list-group-flush">
+              <ListGroup.Item className="first-item">
+                Auth type : {card.Auth ? card.Auth : "---"}
+              </ListGroup.Item>
+              <ListGroup.Item className="last-item">
+                Cors : {card.Cors.toUpperCase()}
+              </ListGroup.Item>
+            </ListGroup>
+          </a>
         </Card>
-      </a>
+      </motion.div>
     </>
   ));
 
@@ -90,11 +121,29 @@ function ApiCards(props) {
     setFiltered(searched);
   }, [searchKey]);
   return (
-    <>
-      <p>Current Category: {category}</p>
-      <p>Number of API: {apiCards.length}</p>
-      <div className="cardList--fieldset">{apiCards}</div>
-    </>
+    <div className="card--container">
+      <div className="card-list--info">
+        <p className="--list --1">
+          Current Category:
+          <Badge className="badge-style" bg="warning" text="dark">
+            {category}
+          </Badge>
+        </p>
+        <p className="--list --2">
+          Number of API:
+          <Badge className="badge-style" bg="warning" text="dark">
+            {apiCards.length}
+          </Badge>
+        </p>
+      </div>
+      <motion.div
+        layout
+        transition={{ duration: 0.3 }}
+        className="cardList--fieldset"
+      >
+        {apiCards}
+      </motion.div>
+    </div>
   );
 }
 
