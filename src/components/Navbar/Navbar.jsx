@@ -49,7 +49,7 @@ function HomeNavbar(props) {
     // <Navbar bg="light" expand="lg">
     <Navbar fixed="top" expand="lg" className="navbar">
       <Container fluid>
-        <Navbar.Brand href="#">API Catalog</Navbar.Brand>
+        <Navbar.Brand href="#">Public API Catalog</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
