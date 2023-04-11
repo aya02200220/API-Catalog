@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -6,17 +6,17 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
+import { MyCategory } from "../../App";
 import styled from "styled-components";
 import "./Navbar.css";
 
 function HomeNavbar(props) {
+  const [category] = useContext(MyCategory);
+  const [text, setText] = useState("");
   const ref = useRef();
 
   const handleSearch = () => {
     console.log("入力確認：", ref.current.value.toLowerCase());
-    // let keyWord = ref.current.value.toLowerCase();
-    // setSelected(ref.current.value.toLowerCase());
     {
       props.setSearchKey(ref.current.value.toLowerCase());
     }
@@ -25,10 +25,24 @@ function HomeNavbar(props) {
   function hitEnter(key) {
     if (key == "Enter") {
       {
+        props.setSearchKey("");
+      }
+      {
         props.setSearchKey(ref.current.value.toLowerCase());
       }
     }
   }
+
+  useEffect(() => {
+    setText("");
+  }, [props.searchKey]);
+
+  useEffect(() => {
+    setText("");
+    {
+      props.setSearchKey("");
+    }
+  }, [category]);
 
   return (
     // <Navbar bg="light" expand="lg">
@@ -66,6 +80,8 @@ function HomeNavbar(props) {
               aria-label="Search"
               ref={ref}
               onKeyUp={(e) => hitEnter(e.key)}
+              value={text}
+              onChange={(event) => setText(event.target.value)}
             />
             <Button
               className="search-btn"

@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from "react";
-// import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { motion } from "framer-motion";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -30,15 +29,10 @@ function ApiCards(props) {
   useEffect(() => {
     setApiList(props.apiList);
     setFiltered(props.apiList);
-    // console.log("---------useEffect---------");
-    // console.log(apiList);
-    // console.log(filtered);
-  }, []);
+  }, [props.start]);
 
   const activeToggle = (e) => {
     setSaved(!active);
-    // console.log(e.target.icon);
-    console.log("確認２");
   };
 
   const apiCards = filtered.map((card, key) => (
@@ -87,6 +81,7 @@ function ApiCards(props) {
     if (category === "All") {
       setApiList(props.apiList);
       setFiltered(props.apiList);
+      setSearchKey("");
       return;
     }
     const filtered = apiList.filter((card) => card.Category.includes(category));

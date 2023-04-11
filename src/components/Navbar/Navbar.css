@@ -3,7 +3,10 @@
   font-family: "Quicksand", sans-serif;
   color: #fff;
   position: fixed;
-  background-color: rgb(38, 46, 107);
+  background-color: rgba(34, 36, 53, 0.884);
+}
+.navbar div#navbarScroll {
+  margin: 0 3%;
 }
 .navbar .me-auto.my-2.my-lg-0.navbar-nav.navbar-nav-scroll {
   margin: 0 40px;

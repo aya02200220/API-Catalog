@@ -48,18 +48,18 @@
   .accordion-header {
     button.accordion-button {
       border: 1px soled #4c39cb;
-      background-color: #8d83cf;
+      background-color: #8a8aaa9f;
       color: #000;
       font-weight: 400;
       padding: 11px 81px;
       &.collapsed {
-        background-color: #c8bfff;
+        background-color: #cecece9c;
         color: #000;
       }
     }
   }
   .accordion-collapse {
     z-index: 0;
-    background-color: #f8f8f8;
+    background-color: #f8f8f831;
   }
 }

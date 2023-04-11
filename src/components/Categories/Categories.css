@@ -41,17 +41,17 @@
 }
 .main-accordion--header .accordion-header button.accordion-button {
   border: 1px soled #4c39cb;
-  background-color: #8d83cf;
+  background-color: rgba(138, 138, 170, 0.6235294118);
   color: #000;
   font-weight: 400;
   padding: 11px 81px;
 }
 .main-accordion--header .accordion-header button.accordion-button.collapsed {
-  background-color: #c8bfff;
+  background-color: rgba(206, 206, 206, 0.6117647059);
   color: #000;
 }
 .main-accordion--header .accordion-collapse {
   z-index: 0;
-  background-color: #f8f8f8;
+  background-color: rgba(248, 248, 248, 0.1921568627);
 }
 /*# sourceMappingURL=Categories.css.map */
