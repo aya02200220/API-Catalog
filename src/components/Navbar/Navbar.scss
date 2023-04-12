@@ -5,21 +5,26 @@
   color: #fff;
   position: fixed;
   div#navbarScroll {
-    margin: 0 3%;
+    margin: 0 5%;
   }
 
   background-color: rgba(34, 36, 53, 0.884);
   .me-auto.my-2.my-lg-0.navbar-nav.navbar-nav-scroll {
     margin: 0 40px;
   }
+  button.navbar-toggler {
+    margin-right: 3%;
+    margin-bottom: 3px;
+  }
   .navbar-toggler-icon {
+    margin: 0 0;
     border-radius: 3px;
     background-color: rgb(149, 154, 188);
   }
   a.navbar-brand {
     font-weight: 600;
     color: white;
-    margin-left: 60px;
+    margin-left: 5%;
   }
   a.nav-link {
     color: #fff;
@@ -35,13 +40,28 @@
     }
   }
   .form-control {
-    width: 20%;
+    width: 15rem;
+  }
+  .navbar-collapse {
+    display: flex;
+    justify-content: center;
   }
 
   .search-btn {
     background-color: rgb(218, 208, 255);
     &:hover {
       background-color: rgb(180, 160, 251);
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    .form-control {
+      width: 80%;
+    }
+    .search-btn {
+      margin-right: 2%;
     }
   }
 }
